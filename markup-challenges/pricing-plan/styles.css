@@ -1,0 +1,54 @@
+body {
+  background-color: rgb(110, 134, 185);
+}
+
+.plan-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 100px;
+  align-items: center;
+  height: 100vh;
+}
+
+.plan-container > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.plan-name {
+  color: rgb(70, 73, 159);
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.plan-description {
+  color: grey;
+  font-size: 16px;
+}
+
+.plan-billing {
+  color: rgb(70, 73, 159);
+}
+
+.plan-price {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.plan-price > sup {
+  font-size: 18px;
+}
