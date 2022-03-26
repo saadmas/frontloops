@@ -1,0 +1,82 @@
+body {
+  background-image: url('./img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', serif;
+}
+
+.payment-card {
+  background-color: white;
+  margin: 100px auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.steps {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.grey-circle {
+  background-color: gray;
+  height: 5px;
+  width: 5px;
+  border-radius: 500px;
+  opacity: 0.3;
+}
+
+.grey-circle:first-of-type {
+  opacity: 1;
+}
+
+.payment-method {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.payment-option {
+  display: flex;
+  padding-left: 30px;
+  gap: 20px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  color: gray;
+}
+
+.payment-option:hover {
+  background-color: rgb(247, 245, 245);
+  cursor: pointer;
+}
+
+.payment-selected {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.payment-selected > span {
+  display: flex;
+  gap: 20px;
+}
+
+.next-step {
+  background: rgb(83, 118, 194);
+  color: white;
+  padding: 20px;
+}
+
+.next-step span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.next-step:hover {
+  opacity: 0.95;
+  cursor: pointer;
+}
