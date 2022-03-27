@@ -1,25 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleButtons = document.querySelectorAll('.toggle-button');
+  document.querySelector('select').addEventListener('change', handleSelectChange);
 
-  for (const toggleButton of toggleButtons) {
+  document.querySelectorAll('.toggle-button').forEach(toggleButton => {
     toggleButton.addEventListener('click', handleToggleClick);
-  }
-
-  const select = document.querySelector('select');
-  select.addEventListener('change', handleSelectChange);
+  });
 });
 
 function handleToggleClick(e) {
-  const toggleButtons = document.querySelectorAll('.toggle-button');
-  toggleButtons.forEach(t => t.classList.remove('active'));
+  removeActiveClasses();
+
   e.target.classList.add('active');
 
-  const select = document.querySelector('select');
-  select.value = e.target.getAttribute('data-value');
+  document.querySelector('select').value = e.target.getAttribute('data-value');
 }
 
 function handleSelectChange(e) {
-  const toggleButtons = document.querySelectorAll('.toggle-button');
-  toggleButtons.forEach(t => t.classList.remove('active'));
+  removeActiveClasses();
   document.getElementById(e.target.value).classList.add('active');
+}
+
+function removeActiveClasses() {
+  document.querySelectorAll('.toggle-button').forEach(t => t.classList.remove('active'));
 }
