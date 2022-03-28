@@ -1,0 +1,72 @@
+body {
+  background-color: purple;
+  font-size: 16px;
+}
+
+.card {
+  width: 800px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 100px auto;
+  display: flex;
+}
+
+.steps {
+  flex: 0.5;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.step-number {
+  border-radius: 50%;
+  background-color: lightgray;
+  font-weight: bold;
+  opacity: 0.8;
+  padding: 5px 10px;
+}
+
+.step-name {
+  color: gray;
+}
+
+.seen .step-number {
+  background-color: rgb(34, 64, 146);
+  color: white;
+  opacity: 1;
+}
+
+.seen .step-name {
+  color: black;
+  opacity: 1;
+}
+
+.step-details {
+  flex: 0.5;
+}
+
+.step-header {
+  margin-bottom: 20px;
+}
+
+.step-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.step-control {
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#prev-button {
+  display: none;
+}
