@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>3d card</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="card js-rotate"></div>
+    </div>
+
+    <!--
+        It's inlined here because js files can't be sent with email (even in zip). Normally would be in a separate file.
+    -->
+    <script>
+        (function() {
+            const elRoot = document.querySelector('.js-rotate');
+
+            // Whenever you move the mouse
+            window.addEventListener('mousemove', e => {
+                // Get screen center coordinates
+                const xHalf = window.innerWidth / 2;
+                const yHalf = window.innerHeight / 2;
+                // If mouse cursor position is greater than the half coordinate - make it positive
+                // Otherwise make it negative, to change the direction of the rotation
+                const x = e.clientX - xHalf;
+                const y = e.clientY - yHalf;
+
+                // Change card rotate styles. By having the value positive or negative, card is rotated the way your cursor moves
+                // Values are divided to reduce the rotation effect
+                elRoot.style.transform = `rotateY(${x / 90}deg) rotateX(${-y / 90}deg)`;
+            });
+        })();
+    </script>
+</body>
+</html>

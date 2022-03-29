@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.block {
+  height: 500px;
+  background-color: lightblue;
+  margin: 100px;
+  margin-bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  transform: translateY(40px);
+  transition-property: opacity, visibility, transform;
+}
+
+.active {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}

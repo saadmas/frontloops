@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Show on scroll</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container js-scroll-show">
+        <div class="block js-scroll-show__item"></div>
+        <div class="block js-scroll-show__item"></div>
+        <div class="block js-scroll-show__item"></div>
+        <div class="block js-scroll-show__item"></div>
+        <div class="block js-scroll-show__item"></div>
+    </div>
+
+    <!--
+        It's inlined here because js files can't be sent with email (even in zip). Normally would be in a separate file.
+    -->
+    <script>
+        (function() {
+            const elRoot = document.querySelector('.js-scroll-show');
+            const elsItem = elRoot.querySelectorAll('.js-scroll-show__item');
+            // Threshold for element to pass before making it active
+            const visibilityMargin = 100;
+
+            const modifiers = {
+                visible: 'block--active'
+            };
+
+            // Function to show all elements that were scrolled by
+            const toggleVisibility = () => {
+                elsItem.forEach(el => {
+                    // Get element position values
+                    const rect = el.getBoundingClientRect();
+                    // Element is on screen if it's top border is less then window height (counting the threshold)
+                    const isInsideScreen = rect.top + visibilityMargin < window.innerHeight;
+
+                    // Show it only if it's on screen and haven't been shown before
+                    const isActive = el.classList.contains(modifiers.visible);
+                    if (isInsideScreen && !isActive) el.classList.add(modifiers.visible);
+                });
+            };
+
+            // Run function when page loads and then each time page is scrolled
+            // (This function can be wrapped with debounce function, for better performance. Please google `javascript debounce` for details)
+            toggleVisibility();
+            window.addEventListener('scroll', toggleVisibility);
+        })();
+    </script>
+</body>
+</html>
