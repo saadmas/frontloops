@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <title>Auto type</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            We can help you with
+            <span class="header__extra js-auto-type"></span>
+        </div>
+    </div>
+
+    <!--
+        It's inlined here because js files can't be sent with email (even in zip). Normally would be in a separate file.
+    -->
+    <script>
+        (function() {
+            const elRoot = document.querySelector('.js-auto-type');
+
+            // All of the word variants
+            const values = ['design', 'frontend', 'backend', 'testing'];
+
+            // Variables to store current component state
+            let currentWordIndex = 0;
+            let currentLetterIndex = 0;
+
+            // Timer variable to clear timer
+            let timer;
+
+            // Function to start timer for typing new letters
+            const startTimer = () => timer = setInterval(addLetter, 200);
+
+            // Function to type next letter based on current component state
+            const addLetter = () => {
+                // Get current word based on state
+                const currentWord = values[currentWordIndex];
+
+                // Check if the word will change for the next iteration
+                const nextLetterIndex = currentLetterIndex + 1;
+                const wordChanged = nextLetterIndex > currentWord.length - 1;
+
+                // Update html of the string
+                elRoot.innerText = currentWord.slice(0, nextLetterIndex);
+
+                // If word will change - reset current letter index back to 0
+                // Otherwise get the increased by one value
+                currentLetterIndex = wordChanged ? 0 : nextLetterIndex;
+
+                if (wordChanged) {
+                    // If word will change also increase the word index
+                    // If this was the last word from the list - reset it back to 0
+                    currentWordIndex = currentWordIndex === values.length - 1 ? 0 : currentWordIndex + 1;
+
+                    // Clear current timer and start a new one after a pause
+                    clearInterval(timer);
+                    setTimeout(startTimer, 1000);
+                }
+            };
+
+            startTimer();
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(240, 240, 119);
+  color: black;
+}
+
+body > div {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.auto-type::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: black;
+  height: 45px;
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

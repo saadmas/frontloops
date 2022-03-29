@@ -1,0 +1,43 @@
+body {
+    background: #f7d794;
+}
+
+.container {
+    font-family: Arial, sans-serif;
+    width: 1000px;
+    margin: 100px auto 0;
+    position: relative;
+}
+
+.header {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.header__extra {
+    position: relative;
+}
+
+.header__extra:after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: -4px;
+    background: #333;
+    animation: caret 1s infinite;
+}
+
+@keyframes caret {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
